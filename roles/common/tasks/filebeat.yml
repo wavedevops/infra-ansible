@@ -8,13 +8,13 @@
     name: filebeat
     state: present
 
-- name: Placing Expense Config File in Nginx
-  ansible.builtin.template:
-    src: filebeat.yml
-    dest: /etc/filebeat/filebeat.yml
-
-- name: Starting filebeat Service
-  ansible.builtin.systemd:
-    name: filebeat
-    state: restarted
-    enabled: yes
+#- name: Placing Expense Config File in Nginx
+#  ansible.builtin.template:
+#    src: filebeat.yml
+#    dest: /etc/filebeat/filebeat.yml
+#
+#- name: Starting filebeat Service
+#  ansible.builtin.systemd:
+#    name: filebeat
+#    state: restarted
+#    enabled: yes
