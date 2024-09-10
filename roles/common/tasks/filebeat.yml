@@ -1,4 +1,4 @@
-- name: Placing Expense Config File in Nginx
+- name: Placing elastic repo File
   ansible.builtin.template:
     src: elastic.repo
     dest: /etc/yum.repos.d/elastic.repo
@@ -7,3 +7,14 @@
   ansible.builtin.dnf:
     name: filebeat
     state: present
+
+- name: Placing Expense Config File in Nginx
+  ansible.builtin.template:
+    src: filebeat.yml
+    dest: /etc/filebeat/filebeat.yml
+
+- name: Starting filebeat Service
+  ansible.builtin.systemd:
+    name: filebeat
+    state: restarted
+    enabled: yes
